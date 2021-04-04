@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<global-property doc:name="Global Property"	doc:id="a636955f-3a77-4bb8-9d9e-41392e3bf5a2" name="api.manager.id"	value="15516630" doc:description="1234567890" />
+	<global-property doc:name="Global Property"	doc:id="115364cd-801a-4482-aa26-1e340f50063b" name="iowacodecamp.papi.host" value="localhost" doc:description="localhost" />
+	<global-property doc:name="Global Property"	doc:id="7a4404d4-0d63-4b19-b340-65015d6001d9" name="iowacodecamp.papi.port" value="8083" doc:description="8083" />
+	<global-property doc:name="Global Property"	doc:id="365e598d-7355-4351-986a-8524ac81dc03" name="twitter.bearer.token" value="REPLACE ME" doc:description="REPLACE ME" />
+	<global-property doc:name="Global Property"	doc:id="ce86f0e8-3e7a-4fc7-a57d-367dfe5332a4" name="iowacodecamp.database.sapi.host" value="localhost" doc:description="localhost" />
+	<global-property doc:name="Global Property"	doc:id="cd50ab04-b4ab-45e2-bc76-edc0725d274f" name="iowacodecamp.database.sapi.port" value="8081" doc:description="8081" />
+	<global-property doc:name="Global Property"	doc:id="aa0bc023-2d64-447f-8eca-d6bf7433dbab" name="iowacodecamp.socialmedia.sapi.host" value="localhost" doc:description="localhost" />
+	<global-property doc:name="Global Property"	doc:id="9e2d97d8-0a84-4898-bce3-bc99c66990c7" name="iowacodecamp.socialmedia.sapi.port" value="8082" doc:description="8082" />
+</mule>

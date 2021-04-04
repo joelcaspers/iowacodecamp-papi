@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="attributes" format="java">
+      <types:shape format="java" element="org.mule.extension.http.api.HttpRequestAttributes"/>
+    </types:type>
+    <types:type name="session" format="json">
+      <types:shape format="weave" example="examples/session-1.json"><![CDATA[%dw 2.0
+
+type session = {|
+  id: Number {"typeId": "int"}, 
+  session_description: String, 
+  speaker_id: Number {"typeId": "int"}, 
+  level: String, 
+  location_id: Number {"typeId": "int"}, 
+  event_slot_id: Number {"typeId": "int"}, 
+  event_slot_name: String
+|} {"example": "{\\\"id\\\":1,\\\"session_description\\\":\\\"This is an example description for a session.\\\",\\\"speaker_id\\\":1,\\\"level\\\":\\\"100\\\",\\\"location_id\\\":1,\\\"event_slot_id\\\":1,\\\"event_slot_name\\\":\\\"9:00 AM - 10:15 AM\\\"}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="speaker" format="json">
+      <types:shape format="weave" example="examples/speaker-1.json"><![CDATA[%dw 2.0
+
+type speaker = {|
+  event_id: Number {"typeId": "int"}, 
+  participant_id: Number {"typeId": "int"}, 
+  image_url: String, 
+  speaker_bio: String, 
+  speaker_url: String, 
+  twitter_handle: String, 
+  name: String, 
+  email: String
+|} {"example": "{\\\"event_id\\\":1,\\\"participant_id\\\":1,\\\"image_url\\\":\\\"\\/Images\\/me.jpg\\\",\\\"speaker_bio\\\":\\\"Joel's Bio here\\\",\\\"speaker_url\\\":\\\"http:\\/\\/www.joelcaspers.com\\\",\\\"twitter_handle\\\":\\\"CaspersJ\\\",\\\"name\\\":\\\"Joel Caspers\\\",\\\"email\\\":\\\"joel.caspers@gmail.com\\\"}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="tweet" format="json">
+      <types:shape format="weave" example="examples/tweet-1.json"><![CDATA[%dw 2.0
+
+type tweet = {|
+  conversation_id: String, 
+  author_id: String, 
+  in_reply_to_user_id: String, 
+  created_at: String, 
+  text: String, 
+  id: String
+|} {"example": "{\\\"conversation_id\\\":\\\"1370424763823308807\\\",\\\"author_id\\\":\\\"151861092\\\",\\\"in_reply_to_user_id\\\":\\\"303364784\\\",\\\"created_at\\\":\\\"2021-03-12T18:06:19.000Z\\\",\\\"text\\\":\\\"@strikeralley Completely agree, especially for the amount they charge for the phones.\\\",\\\"id\\\":\\\"1370436004163817472\\\"}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="session-speaker-tweets" format="json">
+      <types:shape format="weave" example="examples/session-speaker-tweets-1.json"><![CDATA[%dw 2.0
+
+type session_speaker_tweets = {|
+  id: Number {"typeId": "int"}, 
+  session_description: String, 
+  speaker_id: Number {"typeId": "int"}, 
+  level: String, 
+  location_id: Number {"typeId": "int"}, 
+  event_slot_id: Number {"typeId": "int"}, 
+  event_slot_name: String, 
+  speaker: {|
+    event_id: Number {"typeId": "int"}, 
+    participant_id: Number {"typeId": "int"}, 
+    image_url: String, 
+    speaker_bio: String, 
+    speaker_url: String, 
+    twitter_handle: String, 
+    name: String, 
+    email: String, 
+    tweets: Array<{|      conversation_id: String,       author_id: String,       in_reply_to_user_id: String,       created_at: String,       text: String,       id: String    |}>
+  |}
+|} {"example": "{\\\"id\\\":1,\\\"session_description\\\":\\\"This is an example description for a session.\\\",\\\"speaker_id\\\":1,\\\"level\\\":\\\"100\\\",\\\"location_id\\\":1,\\\"event_slot_id\\\":1,\\\"event_slot_name\\\":\\\"9:00 AM - 10:15 AM\\\",\\\"speaker\\\":{\\\"event_id\\\":1,\\\"participant_id\\\":1,\\\"image_url\\\":\\\"\\/Images\\/me.jpg\\\",\\\"speaker_bio\\\":\\\"Joel's Bio here\\\",\\\"speaker_url\\\":\\\"http:\\/\\/www.joelcaspers.com\\\",\\\"twitter_handle\\\":\\\"CaspersJ\\\",\\\"name\\\":\\\"Joel Caspers\\\",\\\"email\\\":\\\"joel.caspers@gmail.com\\\",\\\"tweets\\\":[{\\\"conversation_id\\\":\\\"1370424763823308807\\\",\\\"author_id\\\":\\\"151861092\\\",\\\"in_reply_to_user_id\\\":\\\"303364784\\\",\\\"created_at\\\":\\\"2021-03-12T18:06:19.000Z\\\",\\\"text\\\":\\\"@strikeralley Completely agree, especially for the amount they charge for the phones.\\\",\\\"id\\\":\\\"1370436004163817472\\\"},{\\\"conversation_id\\\":\\\"1370424763823308807\\\",\\\"author_id\\\":\\\"151861092\\\",\\\"in_reply_to_user_id\\\":\\\"303364784\\\",\\\"created_at\\\":\\\"2021-03-12T18:06:19.000Z\\\",\\\"text\\\":\\\"@strikeralley Completely agree, especially for the amount they charge for the phones.\\\",\\\"id\\\":\\\"1370436004163817472\\\"}]}}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#b7c65921-24d6-4386-8dc6-779c462869ac">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#99e03cf6-6895-4804-9d40-253cae5cde7b">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="session"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session-speaker-tweets"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#63cbba2b-2ea7-44ff-8255-6fb29df01e63">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="session"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session"/>
+        </types:message>
+        <types:variables>
+          <types:variable name="speaker" type="speaker"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#75f30aff-6853-4413-bd40-a225c587b074">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="speaker" type="speaker"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session"/>
+        </types:message>
+        <types:variables>
+          <types:variable name="tweets" type="tweet[]"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#1c4771cb-6a51-4d15-bc98-aee828cf524f">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session-speaker-tweets"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#8a84e89b-9fad-4249-bc70-c8f20ffb1af3">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="session-speaker-tweets"/>
+        </types:message>
+        <types:variables>
+          <types:variable name="session_speakers" type="session-speaker-tweets[]"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="session_speakers" type="session-speaker-tweets[]"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#97646768-6afc-4418-894e-f03d54529b7d">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="session[]"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#b49b504c-563b-42df-a344-7edc1230c6fb">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="session_speakers" type="session-speaker-tweets[]"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="session_speakers" type="session-speaker-tweets[]"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+    <types:operation-declaration>
+      <types:inputs>
+        <types:parameter name="value" type="session-speaker-tweets[]"/>
+      </types:inputs>
+    </types:operation-declaration>
+  </types:enrichment>
+  <types:enrichment select="#06347bec-9249-428b-97df-22211078bc3a">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="session_speakers" type="session-speaker-tweets[]"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="session-speaker-tweets[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

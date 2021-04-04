@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "session_description": "This is an example description for a session.",
+  "speaker_id": 1,
+  "level": "100",
+  "location_id": 1,
+  "event_slot_id": 1,
+  "event_slot_name": "9:00 AM - 10:15 AM"
+}

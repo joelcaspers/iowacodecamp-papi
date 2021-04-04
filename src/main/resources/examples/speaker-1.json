@@ -1,0 +1,10 @@
+{
+  "event_id": 1,
+  "participant_id": 1,
+  "image_url": "/Images/me.jpg",
+  "speaker_bio": "Joel's Bio here",
+  "speaker_url": "http://www.joelcaspers.com",
+  "twitter_handle": "CaspersJ",
+  "name": "Joel Caspers",
+  "email": "joel.caspers@gmail.com"
+}

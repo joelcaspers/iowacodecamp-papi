@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "0d105bed-6e79-489e-a4a9-0844a246a07a",
+		"name": "iowacodecamp-papi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user/{twitter_handle}/tweets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "6c0c6140031b41ad9422f1dea033eb10",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "01493d4b74De46EfBD8B5CD27c875894",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8083/papi/iowacodecamp/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"papi",
+						"iowacodecamp",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

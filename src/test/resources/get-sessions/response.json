@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "session_description": "This is an example description for a session.",
+    "speaker_id": 1,
+    "level": "100",
+    "location_id": 1,
+    "event_slot_id": 1,
+    "event_slot_name": "9:00 AM - 10:15 AM",
+    "speaker": {
+      "event_id": 1,
+      "participant_id": 1,
+      "image_url": "/Images/me.jpg",
+      "speaker_bio": "Joel's Bio here",
+      "speaker_url": "http://www.joelcaspers.com",
+      "twitter_handle": "CaspersJ",
+      "name": "Joel Caspers",
+      "email": "joel.caspers@gmail.com",
+      "tweets": [
+        
+      ]
+    }
+  }
+]
